@@ -26,5 +26,10 @@ namespace GestãoDeEstudanteT7
         {
 
         }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
