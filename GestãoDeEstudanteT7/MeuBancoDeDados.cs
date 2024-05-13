@@ -10,10 +10,10 @@ namespace GestãoDeEstudanteT7
 {
     internal class MeuBancoDeDados
     {
-        /*Conexão com Banco de Dados*/
+        /*Conexão com Banco de Dados.*/
         MySqlConnection conexao = new MySqlConnection
             ("datasource=localhost;port=3306;username=root;password=;database=sga_estudantes_bd_t7");
-        /*Acessor da variável "conexão"*/
+        /*Acessor da variável "conexão".*/
         public MySqlConnection getConexao
         {
             get
@@ -21,7 +21,7 @@ namespace GestãoDeEstudanteT7
                 return conexao;
             }
         }
-        /*Função para abrir a conexão com o banco de dados*/
+        /*Função para "abrir" a conexão com o banco de dados.*/
         public void abrirConexao()
         {
             if (conexao.State == ConnectionState.Closed)
@@ -29,7 +29,7 @@ namespace GestãoDeEstudanteT7
             conexao.Open();
             }
         }
-        /*Função para fechar a conexão com banco de dados*/
+        /*Função para "fechar" a conexão com banco de dados.*/
         public void fecharConexao()
         {
             if (conexao.State != ConnectionState.Open) 
