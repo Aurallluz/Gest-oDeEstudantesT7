@@ -16,7 +16,9 @@ namespace GestãoDeEstudanteT7
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login_Form());
+            //Application.Run(new Login_Form());
+
+            FormLogin formLogin = new FormLogin();
         }
     }
 }

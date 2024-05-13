@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace GestãoDeEstudanteT7
 {
-    public partial class Login_Form : Form
+    public partial class FormLogin : Form
     {
-        public Login_Form()
+        public FormLogin()
         {
             InitializeComponent();
         }
@@ -47,9 +47,10 @@ namespace GestãoDeEstudanteT7
 
             meuAdaptadorSql.Fill(tabelaDeDados);
 
-            if (tabelaDeDados.Rows.Count > 0)
+            /*Problema com Form.ShowDialog()*/
+            if (FormLogin.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("Login feito com sucesso.", "Login Concluido", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Application.Run(new FormLogin());
             }
             else
             {
