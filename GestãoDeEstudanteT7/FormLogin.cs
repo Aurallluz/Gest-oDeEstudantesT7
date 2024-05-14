@@ -47,10 +47,9 @@ namespace GestãoDeEstudanteT7
 
             meuAdaptadorSql.Fill(tabelaDeDados);
 
-            /*Problema com Form.ShowDialog()*/
-            if (FormLogin.ShowDialog() == DialogResult.OK)
+            if (tabelaDeDados.Rows.Count > 0)
             {
-                Application.Run(new FormLogin());
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
