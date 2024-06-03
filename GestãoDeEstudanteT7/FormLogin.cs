@@ -62,5 +62,10 @@ namespace GestãoDeEstudanteT7
         {
             Close();
         }
+
+        private void textBoxUsuário_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

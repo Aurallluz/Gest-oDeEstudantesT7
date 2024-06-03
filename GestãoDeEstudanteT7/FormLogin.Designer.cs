@@ -87,6 +87,8 @@
             this.textBoxUsuário.Name = "textBoxUsuário";
             this.textBoxUsuário.Size = new System.Drawing.Size(228, 20);
             this.textBoxUsuário.TabIndex = 4;
+            this.textBoxUsuário.Text = "Admin";
+            this.textBoxUsuário.TextChanged += new System.EventHandler(this.textBoxUsuário_TextChanged);
             // 
             // textBoxSenha
             // 
@@ -94,6 +96,7 @@
             this.textBoxSenha.Name = "textBoxSenha";
             this.textBoxSenha.Size = new System.Drawing.Size(228, 20);
             this.textBoxSenha.TabIndex = 5;
+            this.textBoxSenha.Text = "Admin";
             // 
             // buttonLogin
             // 
