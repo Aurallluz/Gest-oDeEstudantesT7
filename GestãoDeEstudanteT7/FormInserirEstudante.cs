@@ -81,7 +81,7 @@ namespace GestãoDeEstudanteT7
             else if (Verificar())
             {
                 Foto.Image.Save(foto, Foto.Image.RawFormat);
-                if (estudante.InserirEstudante(nome, sobrenome, nascimento, telefone,
+                if (estudante.inserirEstudante(nome, sobrenome, nascimento, telefone,
                    genero, endereco, foto))
                 {
                     MessageBox.Show("Novo aluno cadastrado!", "Sucesso!",

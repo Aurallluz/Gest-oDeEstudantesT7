@@ -35,6 +35,7 @@ namespace GestãoDeEstudanteT7
         private void listaDeEstudantesToolStripMenuItem_Click(object sender, EventArgs e)
         {
      
+
         }
 
         private void editarRemoverToolStripMenuItem_Click(object sender, EventArgs e)

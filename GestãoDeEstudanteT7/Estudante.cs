@@ -1,7 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
 using System;
 using System.Data;
 using System.IO;
+using System.Windows.Forms;
 
 namespace GestãoDeEstudanteT7
 {
@@ -58,7 +60,7 @@ namespace GestãoDeEstudanteT7
             MySqlCommand comando = new MySqlCommand
                 ("UPDATE `estudantes` SET `nome`=@nome,`sobrenome`=@sobrenome,`nascimento`=@nascimento,`genero`=@genero,`telefone`=@telefone,`endereco`=@endereco,`foto`=@foto WHERE `id`=@id)", meuBancoDeDados.getConexao);
 
-            comando.Parameters.Add("@id",MySqlDbType.Int32).Value = id;
+            comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
             comando.Parameters.Add("@nome", MySqlDbType.VarChar).Value = nome;
             comando.Parameters.Add("@sobrenome", MySqlDbType.VarChar).Value = sobrenome;
             comando.Parameters.Add("@nascimento", MySqlDbType.Date).Value = nascimento;
@@ -79,6 +81,24 @@ namespace GestãoDeEstudanteT7
             {
                 meuBancoDeDados.fecharConexao();
                 return false;
+            }
+            public bool apagarEstudante(int id)
+            {
+                MySqlCommand comando = new MySqlCommand("DELETE FROM `estudantes` WHERE `id` = @id");
+
+                comando.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
+
+                meuBancoDeDados.abrirConexao();
+                if (comando.EndExecuteNonQuery() == 1)
+                {
+                    meuBancoDeDados.fecharConexao();
+                    return true;
+                }
+                else
+                {
+                    meuBancoDeDados.fecharConexao();
+                    return false;
+                }
             }
         }
     }
