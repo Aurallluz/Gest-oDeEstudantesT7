@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GestorDeEstudantesT7;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,11 +58,13 @@ namespace GestãoDeEstudanteT7
         {
             Estudante estudante = new Estudante();
 
-            string nome = Nome.Text;
-            string sobrenome = Sobrenome.Text;
-            DateTime nascimento = Nascimento.Value;
-            string telefone = Telefone.Text;
-            string endereco = Endereco.Text;
+            int id = Convert ToInt32(TextBox.ID.Text);
+
+            string nome = textBoxNome.Text;
+            string sobrenome = textBoxSobrenome.Text;
+            DateTime nascimento = dataTimePickerNascimento.Value;
+            string telefone = textBoxTelefone.Text;
+            string endereco = textBoxEndereco.Text;
             string genero = "Feminino";
 
             if (radioButtonMasculino.Checked == true)
@@ -69,7 +72,7 @@ namespace GestãoDeEstudanteT7
             MemoryStream foto = new MemoryStream();
 
             // Verificar se o aluno tem entre 10 e 100 anos.
-            int anoDeNascimento = Nascimento.Value.Year;
+            int anoDeNascimento = dataTimePickerNascimento.Value.Year;
             int anoAtual = DateTime.Now.Year;
             if ((anoAtual - anoDeNascimento) < 10 || (anoAtual - anoDeNascimento) > 100)
             {
@@ -105,6 +108,19 @@ namespace GestãoDeEstudanteT7
         private bool Verificar()
         {
             throw new NotImplementedException();
+        }
+
+        private void buttonEnviarFoto_Click(object sender, EventArgs e)
+        {
+            // Abre janela para pesquisar a imagem no computador.
+            OpenFileDialog procurarFoto = new OpenFileDialog();
+
+            procurarFoto.Filter = "Selecione a foto (*.jpg;*.png;*.jpeg;*.gif)|*.jpg;*.png;*.jpeg;*.gif";
+
+            if (procurarFoto.ShowDialog() == DialogResult.OK)
+            {
+                Foto.Image = Image.FromFile(procurarFoto.FileName);
+            }
         }
     }
 }

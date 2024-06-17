@@ -8,13 +8,13 @@ namespace GestãoDeEstudanteT7
 {
     internal static class Program
     {
-        
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
+            //Application.Run(new Login_Form());
 
             FormLogin formLogin = new FormLogin();
 
